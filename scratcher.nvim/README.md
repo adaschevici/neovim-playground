@@ -5,7 +5,7 @@ return {
 	dir = "<path to local plugin directory>",
 	name = "myfirstplugin",
 	config = function()
-		require("scratcher")
+		require("scratcher").setup()
 	end,
 }
 ```
