@@ -14,6 +14,13 @@ end
 local function setup()
   vim.api.nvim_create_autocmd("VimEnter",
     { group = augroup, desc = "Set a scratch buffer on load", once = true, callback = main })
+  local buf = create_buffer()
+
+  vim.api.nvim_buf_set_lines(buf, 0, -1, true, { "-- Welcome to Neovim!", "" })
+
+  vim.api.nvim_win_set_buf(0, buf)
+
+  vim.api.nvim_win_set_cursor(0, { vim.api.nvim_buf_line_count(buf), 0 })
 end
 
 return { setup = setup }
